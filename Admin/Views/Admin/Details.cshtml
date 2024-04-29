@@ -1,0 +1,36 @@
+﻿@using EShop.Domain.Domain
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Order
+
+<h1>Order @Model.Id for user @(Model.Owner.FirstName + " " +  Model.Owner.LastName)</h1>
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </thead>
+    @{
+        foreach(TicketInOrder pio in Model.ProductInOrders)
+        {
+            <tr>
+                <td>@pio.OrderedProduct.Movie.MovieName</td>
+                <td>@pio.OrderedProduct.Price</td>
+                <td>@pio.Quantity</td>
+                <td>@(pio.OrderedProduct.Price * pio.Quantity)</td>
+            </tr>
+        }
+        
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="fw-bold">Subtotal:</td>
+        <td class="fw-bold">@Model.ProductInOrders.Select(pio => pio.Quantity * pio.OrderedProduct.Price).Sum()</td>
+    </tr>
+</table>

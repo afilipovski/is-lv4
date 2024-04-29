@@ -17,10 +17,10 @@ namespace EShop.Service.Implementation
         private readonly IUserRepository _userRepository;
         private readonly IRepository<ShoppingCart> _shoppingCartRepository;
         private readonly IRepository<Ticket> _productRepository;
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly IRepository<TicketInOrder> _productInOrderRepository;
 
-        public ShoppingCartService(IUserRepository userRepository, IRepository<ShoppingCart> shoppingCartRepository, IRepository<Ticket> productRepository, IRepository<Order> orderRepository, IRepository<TicketInOrder> productInOrderRepository)
+        public ShoppingCartService(IUserRepository userRepository, IRepository<ShoppingCart> shoppingCartRepository, IRepository<Ticket> productRepository, IOrderRepository orderRepository, IRepository<TicketInOrder> productInOrderRepository)
         {
             _userRepository = userRepository;
             _shoppingCartRepository = shoppingCartRepository;
